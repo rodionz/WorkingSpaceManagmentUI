@@ -1,0 +1,59 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-12">Please select dates of your workspace booking</div>
+
+  </div>
+
+  <div class="row">
+  <div class="col-md-12">
+  <Form [formGroup]="datesForm" (ngSubmit)="onFormSubmit()">
+
+    <div class="row">
+  <div class="col-md-6">
+  <mat-form-field>
+    <input matInput type="datetime-local" placeholder="start date"  formControlName="datefrom">
+  </mat-form-field>
+</div>
+
+<div class="col-md-6">
+  <mat-form-field>
+    <input matInput type="datetime-local" placeholder="end date" formControlName="dateTo">
+  </mat-form-field>
+</div>
+</div>
+
+
+  <button type="submit" [disabled]="datesForm.status == 'INVALID'">Submit</button>
+</Form>
+</div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+ <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="workStationId">
+    <mat-header-cell *matHeaderCellDef> Work StationId </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.workStationId}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="companyName">
+    <mat-header-cell *matHeaderCellDef> Company Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.CompanieName}} </mat-cell>
+  </ng-container>
+
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row (click)="highlight(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<button id="button" type="button" (click)="makeBooking()" [disabled]="selectedRowIndex ==-1">Book Your WorkSpace</button>
+</div>
+</div>
+</div>
+
+</div>

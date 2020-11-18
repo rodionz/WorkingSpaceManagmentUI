@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+ <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="workStationId">
+    <mat-header-cell *matHeaderCellDef> Work StationId </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.workStationId}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="companyName">
+    <mat-header-cell *matHeaderCellDef> Company Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.CompanieName}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="EmployeeFullName">
+    <mat-header-cell *matHeaderCellDef> Employee Full Name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.EmployeeFullName}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="startDate">
+    <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.startDate | date : 'medium'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="endDate">
+    <mat-header-cell *matHeaderCellDef> End Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.endDate | date : 'medium'}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+</div>
+</div>
+</div>
